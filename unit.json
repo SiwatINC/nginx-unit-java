@@ -1,0 +1,22 @@
+{
+    "listeners": {
+        "*:80": {
+            "pass": "routes"
+        }
+    },
+    "routes": [{
+        "match": {
+            "uri": "*"
+        },
+        "action": {
+            "pass": "applications/java_application"
+        }
+    }],
+    "applications": {
+        "java_application": {
+            "type": "java",
+            "webapp": "/software/java/application.war",
+            "working_directory": "/config"
+        }
+    }
+}
