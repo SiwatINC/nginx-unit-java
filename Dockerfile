@@ -1,4 +1,6 @@
-FROM ghcr.io/siwatinc/java-baseimage:openjdk16
+FROM ghcr.io/siwat-ubuntubaseimage:hirsute
+RUN add-apt-repository ppa:openjdk-r/ppa
+RUN apt-get update && apt-get -y install openjdk-16-jdk
 RUN curl --output /usr/share/keyrings/nginx-keyring.gpg https://unit.nginx.org/keys/nginx-keyring.gpg && \
     echo "deb [signed-by=/usr/share/keyrings/nginx-keyring.gpg] https://packages.nginx.org/unit/ubuntu/ hirsute unit" > /etc/apt/sources.list.d/unit.list && \
     echo "deb-src [signed-by=/usr/share/keyrings/nginx-keyring.gpg] https://packages.nginx.org/unit/ubuntu/ hirsute unit" >> /etc/apt/sources.list.d/unit.list
