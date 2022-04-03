@@ -1,5 +1,8 @@
-FROM nginx/unit:1.26.1-minimal
-RUN apt-get -y update && apt-get -y install openjdk-17-jre
+FROM ghcr.io/siwatinc/java-baseimage:openjdk16
+RUN curl --output /usr/share/keyrings/nginx-keyring.gpg https://unit.nginx.org/keys/nginx-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/nginx-keyring.gpg] https://packages.nginx.org/unit/ubuntu/ hirsute unit" > /etc/apt/sources.list.d/unit.list && \
+    echo "deb-src [signed-by=/usr/share/keyrings/nginx-keyring.gpg] https://packages.nginx.org/unit/ubuntu/ hirsute unit" >> /etc/apt/sources.list.d/unit.list
+RUN apt-get -y update && apt-get -y install openjdk-17-jre unit unit-jsc16
 RUN mkdir -p /software/unit
 ADD ./unit.json /software/unit/config.json
 ADD ./entrypoint.sh /software/entrypoint.sh
