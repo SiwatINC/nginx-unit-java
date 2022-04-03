@@ -1,4 +1,4 @@
-FROM ghcr.io/siwat-ubuntubaseimage:hirsute
+FROM ghcr.io/siwatinc/siwat-ubuntubaseimage:hirsute
 RUN add-apt-repository ppa:openjdk-r/ppa
 RUN apt-get update && apt-get -y install openjdk-16-jdk
 RUN curl --output /usr/share/keyrings/nginx-keyring.gpg https://unit.nginx.org/keys/nginx-keyring.gpg && \
