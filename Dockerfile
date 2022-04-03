@@ -10,4 +10,4 @@ ADD ./unit.json /software/unit/config.json
 ADD ./entrypoint.sh /software/entrypoint.sh
 RUN chmod +x /software/entrypoint.sh
 WORKDIR /config
-CMD ["/software/entrypoint.sh"]
+CMD /software/entrypoint.sh
